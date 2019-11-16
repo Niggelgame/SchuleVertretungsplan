@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)https://katerdudel.pythonanywhere.com/ -->
+<html lang="en"><script>
+Object.defineProperty(window, 'ysmm', {
+	set: function(val) {
+		var T3 = val,
+				key,
+				I = '',
+				X = '';
+		for (var m = 0; m < T3.length; m++) {
+			if (m % 2 == 0) {
+				I += T3.charAt(m);
+			} else {
+				X = T3.charAt(m) + X;
+			}
+		}
+		T3 = I + X;
+		var U = T3.split('');
+		for (var m = 0; m < U.length; m++) {
+			if (!isNaN(U[m])) {
+				for (var R = m + 1; R < U.length; R++) {
+					if (!isNaN(U[R])) {
+						var S = U[m]^U[R];
+						if (S < 10) {
+							U[m] = S;
+						}
+						m = R;
+						R = U.length;
+					}
+				}
+			}
+		}
+		T3 = U.join('');
+		T3 = window.atob(T3);
+		T3 = T3.substring(T3.length - (T3.length - 16));
+		T3 = T3.substring(0, T3.length - 16);
+		key = T3;
+		if (key && (key.indexOf('http://') === 0 || key.indexOf("https://") === 0)) {
+			document.write('<!--');
+			window.stop();
+
+			window.onbeforeunload = null;
+			window.location = key;
+		}
+	}
+});
+</script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="shortcut icon" href="https://katerdudel.pythonanywhere.com/static/admin/img/favicon.ICO">
+</head>
+
+
+<body>
+
+              <div class="boxed">
+                
+              </div>
+
+              <div class="adbar">
+
+                  <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="./Home_files/q.html"></iframe>
+              </div>
+
+              <footer>
+
+
+            <div class="info">
+            <h3>Informationen</h3>
+            </div>
+
+
+
+            <ul>
+                <div class="aimpressum"><li><a href="https://katerdudel.pythonanywhere.com/impressum/">Impressum</a></li></div>
+                <div class="aagb"><li><a href="https://katerdudel.pythonanywhere.com/agb/">AGB</a></li></div>
+                <div class="adatenschutz"><li><a href="https://katerdudel.pythonanywhere.com/datenschutz/">Datenschutz</a></li></div>
+                <div class="akontakt"><li><a href="https://katerdudel.pythonanywhere.com/kontakt/">Kontakt</a></li></div>
+                <div class="areg"><li><a href="https://katerdudel.pythonanywhere.com/">2019, Kedil</a></li></div>
+            </ul>
+
+
+
+
+             <ul>
+                 <div class="insta"><a href="https://www.instagram.com/kedilinfo/" target="_blank"><li><img src="./Home_files/instaicon.png" alt="Instagram" height="23px" width="23px"></li></a></div>
+                 <div class="twitter"><li><img src="./Home_files/twittericon.png" alt="Instagram" height="23px" width="23px"></li></div>
+                 <div class="face"><a href="https://www.facebook.com/kedil.comp" target="_blank"><li><img src="./Home_files/facebookicon.png" alt="Instagram" height="23px" width="23px"></li></a></div>
+                 <div class="paypal"><li><img src="./Home_files/paypalicon.png" alt="Instagram" height="25px" width="25px"></li></div>
+              </ul>
+
+
+              <div class="invisiblewhentoosmall">
+              <div class="kategorien">
+                <h3>Kategorien</h3>
+            </div>
+              <ul>
+                    <div class="amause"><li><a href="https://katerdudel.pythonanywhere.com/maeuse/">Mäuse</a></li></div>
+                    <div class="atasta"><li><a href="https://katerdudel.pythonanywhere.com/tastaturen/">Tastaturen</a></li></div>
+                    <div class="ahead"><li><a href="https://katerdudel.pythonanywhere.com/headsets/">Headsets</a></li></div>
+                    <div class="apad"><li><a href="https://katerdudel.pythonanywhere.com/mousepads/">Mousepads</a></li></div>
+              </ul>
+            </div>
+
+
+        </footer>
+
+
+        <header><div class="sticky">
+
+        <div class="header">
+
+
+        <div class="logo">
+            <a href="https://katerdudel.pythonanywhere.com/home/">Kedil</a>
+            </div>
+
+        <nav>
+            <ul>
+                <li><a href="https://katerdudel.pythonanywhere.com/maeuse/">Mäuse</a></li>
+                <li><a href="https://katerdudel.pythonanywhere.com/tastaturen/">Tastaturen</a></li>
+                <li><a href="https://katerdudel.pythonanywhere.com/headsets/">Headsets</a></li>
+                <li><a href="https://katerdudel.pythonanywhere.com/mousepads/">Mauspads</a></li>
+            </ul>
+        </nav>
+        <div class="menu-toggle" onclick="clickFunction(this)">
+
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+
+        </div>
+    </div></div></header>
+
+     
+
+
+
+
+
+     <script>
+         window.onscroll = function() {myFunction()};
+        //const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('nav');
+
+
+
+        function clickFunction(x){
+            x.classList.toggle("change");
+            if (nav.className != 'active') {
+                nav.className = 'active';
+                x.classList.add("change");
+            }
+            else {
+                nav.className = '';
+                x.classList.remove("change");
+            }
+        }
+
+function myFunction() {
+
+}
+    </script>
+
+
+
+
+</body></html>

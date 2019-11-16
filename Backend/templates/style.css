@@ -1,0 +1,34 @@
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-image: image()
+}
+
+nav{
+    text-align: center; 
+}
+
+nav ul{
+    list-style-type: none;
+    font-style: oblique;
+}
+
+nav li{
+    display: inline;
+    margin-right: 40px;
+    font-style: oblique;
+}
+
+a{
+   color: #777;
+   text-decoration: none;
+   font-family: bold;
+   font-size: 15px; 
+}
+
+.oben{
+    
+
+}
