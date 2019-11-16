@@ -26,9 +26,9 @@ class IntrayTodo extends StatelessWidget {
       ),
       child: Row(
         children: <Widget>[
-          Radio(
+          // Radio(
             
-          ),
+          // ),
           Column(
             children: <Widget>[
               Text(title, style: darkTodoTitle,)

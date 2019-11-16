@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todoapp/bloc/blocs/user_bloc_provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:todoapp/models/classes/user.dart';
+// import 'package:todoapp/models/classes/user.dart';
 import 'package:todoapp/models/global.dart';
 
 class LoginPage extends StatefulWidget {
@@ -65,9 +64,10 @@ class _LoginPageState extends State<LoginPage> {
                 color: Colors.green,
                 child: Text("Sign up for gods SAAKE"),
                 onPressed: () {
-                  User user;
+                  
                   if(usernameController.text != null || passwordController.text != null || emailController.text != null) {
-                    user = bloc.registerUser(
+                    // User user =
+                    bloc.registerUser(
                     usernameController.text,
                     firstNameController.text ?? "",
                     "",

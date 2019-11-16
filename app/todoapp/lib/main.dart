@@ -3,8 +3,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:todoapp/UI/Intray/intray_page.dart';
 import 'package:todoapp/UI/Login/loginscreen.dart';
 import 'package:todoapp/models/global.dart';
-import 'package:http/http.dart' as http;
-import 'package:todoapp/models/classes/user.dart';
 import 'package:todoapp/bloc/blocs/user_bloc_provider.dart';
 
 void main() => runApp(MyApp());
@@ -105,20 +103,20 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future signinUser() async {
-    String userName = "";
-    String api_key = await getApiKey();
-    if (api_key.length > 0) {
-      bloc.signinUser("", "", api_key).then((reallyloggedin){
+    // String userName = "";
+    String apikey = await getApiKey();
+    if (apikey.length > 0) {
+      bloc.signinUser("", "", apikey).then((reallyloggedin){
         if(!reallyloggedin){
           logout();
           return "";
         }
-        return api_key;
+        return apikey;
       });
     } else {
       print("No api key");
     }
-    return api_key;
+    return apikey;
   }
  
   Future getApiKey() async {  

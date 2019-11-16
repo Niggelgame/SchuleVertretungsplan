@@ -18,6 +18,8 @@ class ApiProvider {
     if(response.statusCode == 201){
       return response.body.toString();
     }
+
+    return null;
     
   }
 
@@ -76,10 +78,10 @@ class ApiProvider {
 
 
 
-  saveApiKey(String api_key) async {
+  saveApiKey(String apikey) async {
     
     SharedPreferences prefs = await SharedPreferences.getInstance();  
-    prefs.setString('API_Token', api_key);
+    prefs.setString('API_Token', apikey);
     
   }
 }

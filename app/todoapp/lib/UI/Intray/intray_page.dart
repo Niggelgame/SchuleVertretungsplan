@@ -1,14 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_html/flutter_html.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:todoapp/bloc/blocs/user_bloc_provider.dart';
-import 'package:todoapp/models/classes/task.dart';
 import 'package:todoapp/models/global.dart';
 import 'package:webview_flutter/webview_flutter.dart';
-import 'package:todoapp/models/widgets/intray_todo_widget.dart';
-
 
 class IntrayPage extends StatefulWidget {
   @override
