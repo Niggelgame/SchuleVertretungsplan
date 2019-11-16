@@ -158,7 +158,7 @@ class _LoginPageState extends State<LoginPage> {
                     child: Text("Sign in", style: redTodoTitle,),
                     onPressed: () {
                       if(usernameText.text != null ||passwordText.text != null || usernameText.text != "" ||passwordText.text != "") {
-                        print(usernameText.text + passwordText.text);
+                        // print(usernameText.text + passwordText.text);
                         bloc.signinUser(usernameText.text, passwordText.text, "").then((_) {
                           widget.login();
                         });

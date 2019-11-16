@@ -3,6 +3,7 @@ import 'package:http/http.dart' show Client;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
 import 'package:todoapp/models/classes/user.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class ApiProvider {
   Client client = new Client();
@@ -24,8 +25,9 @@ class ApiProvider {
   }
 
   Future<bool> signinUser(String username, String password, String apiKey) async {
-    // print("\n\n\n\nentered\n\n\n");
-    final response = await client
+    print("\n\n\n\nentered\n\n\n");
+    try{
+      final response = await client
         .post("http://10.0.2.2:5000/api/signin",
         headers: {
           "Authorization": apiKey
@@ -34,20 +36,41 @@ class ApiProvider {
 	        "username": username,
           "password": password,
         }) );
-    final Map result = json.decode(response.body);
-    // print(result["data"].toString());
-    print(response.statusCode.toString());
-    if (response.statusCode == 201) {
-      // If the call to the server was successful, parse the JSON
-      // print(result["data"]);
-      await saveApiKey(result["data"]["api_key"]);
-      return true;
-      
-    } else {
-      // If that call was not successful, throw an error.
-      // print(result["data"]);
-      //throw Exception('Failed to load post');
-      return false;
+        final Map result = json.decode(response.body);
+        // print(result["data"].toString());
+        print(response.statusCode.toString());
+        if (response.statusCode == 201) {
+          // If the call to the server was successful, parse the JSON
+          // print(result["data"]);
+          await saveApiKey(result["data"]["api_key"]);
+          return true;
+          
+        } else {
+          // If that call was not successful, throw an error.
+          // print(result["data"]);
+          //throw Exception('Failed to load post');
+          print("falsch!!!");
+          Fluttertoast.showToast(
+            msg: "Falscher Benutzername oder Password",
+            toastLength: Toast.LENGTH_SHORT,
+            gravity: ToastGravity.CENTER,
+            timeInSecForIos: 1,
+            
+            fontSize: 16.0
+          );
+          return false;
+        } 
+    
+    } catch (e) {
+      Fluttertoast.showToast(
+            msg: "Keine Verbindung zum Server!",
+            toastLength: Toast.LENGTH_SHORT,
+            gravity: ToastGravity.CENTER,
+            timeInSecForIos: 1,
+            
+            fontSize: 16.0
+          );
+          return false;
     }
   }
 
