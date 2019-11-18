@@ -108,7 +108,8 @@ class _IntrayPageState extends State<IntrayPage> {
                           _isLoadingPage = true;
                         });
                         String apiToken = await getApiToken();
-                        controller.data.loadUrl("http://10.0.2.2:5000/api/data", headers: {
+                        controller.data.loadUrl("http://niggelgame.pythonanywhere.com/api/signin",//"http://10.0.2.2:5000/api/data",
+                         headers: {
                                     "Authorization": apiToken
                                   }).whenComplete(() {
                                     
