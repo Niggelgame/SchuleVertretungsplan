@@ -9,12 +9,12 @@ import string
 
 
 class Signin(Resource):
-    # def get(self):
-    #     users = User.query.all()
-    #     user_list = []
-    #     for i in range(0,len(users)):
-    #         user_list.append(users[i].serialize())
-    #     return {"status" : str(user_list)}, 200
+    def get(self):
+        users = User.query.all()
+        user_list = []
+        for i in range(0,len(users)):
+            user_list.append(users[i].serialize())
+        return {"status" : str(user_list)}, 200
     def post(self):
         result = ""
         json_data = request.get_json(force=True)
