@@ -57,7 +57,8 @@ class _IntrayPageState extends State<IntrayPage> {
                         onWebViewCreated: (WebViewController webViewController) {
                           
                           print(_controller);
-                          webViewController.loadUrl("http://10.0.2.2:5000/api/data", headers: {
+                          webViewController.loadUrl("http://niggelgame.pythonanywhere.com/api/data",//"http://10.0.2.2:5000/api/data",
+                           headers: {
                             "Authorization": snapshot.data
                           }).whenComplete(() {
                             
@@ -108,7 +109,7 @@ class _IntrayPageState extends State<IntrayPage> {
                           _isLoadingPage = true;
                         });
                         String apiToken = await getApiToken();
-                        controller.data.loadUrl("http://niggelgame.pythonanywhere.com/api/signin",//"http://10.0.2.2:5000/api/data",
+                        controller.data.loadUrl("http://niggelgame.pythonanywhere.com/api/data",//"http://10.0.2.2:5000/api/data",
                          headers: {
                                     "Authorization": apiToken
                                   }).whenComplete(() {
