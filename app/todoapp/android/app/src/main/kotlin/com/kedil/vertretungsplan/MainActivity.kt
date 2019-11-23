@@ -1,4 +1,4 @@
-package com.example.todoapp
+package com.kedil.vertretungsplan
 
 import android.os.Bundle
 import io.flutter.app.FlutterActivity
