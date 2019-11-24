@@ -131,6 +131,7 @@ class _MyHomePageState extends State<MyHomePage> {
         home: Container(
           color: darkGreyColor,
             child: SafeArea(
+              bottom: false,
               child: DefaultTabController(
               length: 2,
               child: new Scaffold(
