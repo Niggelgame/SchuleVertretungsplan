@@ -6,6 +6,22 @@ Color redColor = new Color(0xFFDC4F64);
 
 Color lightBlueColor = new Color(0xFF8787A0);
 
+MaterialColor whiteMaterial = const MaterialColor(
+  0xFFFFFFFF,
+  const <int, Color>{
+    50: const Color(0xFFFFFFFF),
+    100: const Color(0xFFFFFFFF),
+    200: const Color(0xFFFFFFFF),
+    300: const Color(0xFFFFFFFF),
+    400: const Color(0xFFFFFFFF),
+    500: const Color(0xFFFFFFFF),
+    600: const Color(0xFFFFFFFF),
+    700: const Color(0xFFFFFFFF),
+    800: const Color(0xFFFFFFFF),
+    900: const Color(0xFFFFFFFF),
+  },
+);
+
 TextStyle intrayTitleStyle = new TextStyle(
   fontFamily: 'Avenir',
   fontWeight: FontWeight.w700,

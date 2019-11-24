@@ -38,7 +38,7 @@ class _IntrayPageState extends State<IntrayPage> {
         color: Colors.white,
           child: Container(
           //padding: EdgeInsets.only(top: 300),
-          margin: EdgeInsets.only(top: 80),
+          margin: EdgeInsets.only(top: 90),
           color: Colors.green,
           child: Scaffold(
             body: Stack(

@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       title: 'Todo App',
       theme: ThemeData(
        
-        primarySwatch: Colors.grey,
+        primarySwatch: whiteMaterial,
       ),
       home: MyHomePage(),
       
@@ -129,7 +129,7 @@ class _MyHomePageState extends State<MyHomePage> {
       debugShowCheckedModeBanner: false,
         color: Colors.yellow,
         home: Container(
-          color: darkGreyColor,
+          color: Colors.white,
             child: SafeArea(
               child: DefaultTabController(
               length: 2,
