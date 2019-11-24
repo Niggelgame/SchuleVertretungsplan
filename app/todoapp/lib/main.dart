@@ -129,7 +129,7 @@ class _MyHomePageState extends State<MyHomePage> {
       debugShowCheckedModeBanner: false,
         color: Colors.yellow,
         home: Container(
-          color: Colors.white,
+          color: darkGreyColor,
             child: SafeArea(
               child: DefaultTabController(
               length: 2,
