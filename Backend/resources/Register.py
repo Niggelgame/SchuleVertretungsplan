@@ -18,7 +18,7 @@ class Register(Resource):
     def post(self):
         json_data = request.get_json(force=True)
         if not json_data:
-            return  { 'message' : 'No input data provided'}, 400
+            return  { 'message' : 'No input data provided'}, 401
         # data, errors = User.load(json_data)
 
         # if errors:
@@ -26,11 +26,11 @@ class Register(Resource):
 
         user = User.query.filter_by(username=json_data['username']).first()
         if user:
-            return {'message' : 'Username not available'}, 400
+            return {'message' : 'Username not available'}, 402
 
-        user = User.query.filter_by(emailadress=json_data['emailadress']).first()
-        if user:
-            return {'message' : 'Email-Adress already under use'}, 400
+        # user = User.query.filter_by(emailadress=json_data['emailadress']).first()
+        # if user:
+        #     return {'message' : 'Email-Adress already under use'}, 403
         
 
         api_key = self.generate_key()
