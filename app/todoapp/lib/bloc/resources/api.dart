@@ -11,7 +11,7 @@ class ApiProvider {
 
   Future<String> getData(String apiKey) async {
     final response = await client
-      .get("http://niggelgame.pythonanywhere.com/api/data",//"http://10.0.2.2:5000/api/data",
+      .get("https://niggelgame.pythonanywhere.com/api/data",//"http://10.0.2.2:5000/api/data",
       headers: {
         "Authorization": apiKey
       });
@@ -28,7 +28,7 @@ class ApiProvider {
     print("\n\n\n\nentered\n\n\n");
     try{
       final response = await client
-        .post("http://niggelgame.pythonanywhere.com/api/signin",//"http://10.0.2.2:5000/api/signin",
+        .post("https://niggelgame.pythonanywhere.com/api/signin",//"http://10.0.2.2:5000/api/signin",
         headers: {
           "Authorization": apiKey
         },
@@ -79,7 +79,7 @@ class ApiProvider {
   Future<User> registerUser(String username, String firstname, String lastname, String password, String email) async {
     // print("\n\n\n\nentered\n\n\n");
     final response = await client
-        .post("http://niggelgame.pythonanywhere.com/api/register",//"http://10.0.2.2:5000/api/register",
+        .post("https://niggelgame.pythonanywhere.com/api/register",//"http://10.0.2.2:5000/api/register",
         //headers: {""},
         body: jsonEncode({
           "emailadress": email,
