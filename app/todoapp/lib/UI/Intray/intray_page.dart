@@ -41,14 +41,16 @@ class _IntrayPageState extends State<IntrayPage> {
           margin: EdgeInsets.only(top: 80),
           color: Colors.green,
           child: Scaffold(
-            body: Stack(
-              children: <Widget>[
+            body:
+            // body: Stack(
+            //   children: <Widget>[
                 FutureBuilder<String>(
                   future: getApiToken(),
                   builder:(BuildContext context, AsyncSnapshot snapshot){ 
 
                     if(snapshot.hasData){
                       return WebView(
+                        
                       
                         //initialUrl: "https://pub.dev/packages/webview_flutter#-installing-tab-",
 
@@ -83,18 +85,18 @@ class _IntrayPageState extends State<IntrayPage> {
                     }
                                   }
                 ),
-                _isLoadingPage
-                  ? Container(
-                      alignment: FractionalOffset.center,
-                      child: CircularProgressIndicator(
-                      ),
+            //     _isLoadingPage
+            //       ? Container(
+            //           alignment: FractionalOffset.center,
+            //           child: CircularProgressIndicator(
+            //           ),
                       
-                    )
-                  : Container(
-                      color: Colors.transparent,
-                    ),
-                  ],
-            ),
+            //         )
+            //       : Container(
+            //           color: Colors.transparent,
+            //         ),
+            //       ],
+            // ),
             floatingActionButton: FutureBuilder(
               future: _controller.future,
                 builder: (BuildContext context, AsyncSnapshot<WebViewController> controller) {
