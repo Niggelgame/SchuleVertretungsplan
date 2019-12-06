@@ -12,7 +12,7 @@ class IntrayPage extends StatefulWidget {
 
 class _IntrayPageState extends State<IntrayPage> {
   
-  bool _isLoadingPage = true;
+  // bool _isLoadingPage = true;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -65,7 +65,7 @@ class _IntrayPageState extends State<IntrayPage> {
                             
                             //print("HEYHOOOOOO\n\n\n\n\n\n");
                             setState(() {
-                              _isLoadingPage = false;
+                              // _isLoadingPage = false;
                             });
                             
                             //print(_controller);
@@ -107,7 +107,7 @@ class _IntrayPageState extends State<IntrayPage> {
                       onPressed: () async {
                         print("HeyHO");
                         setState(() {
-                          _isLoadingPage = true;
+                          // _isLoadingPage = true;
                         });
                         String apiToken = await getApiToken();
                         controller.data.loadUrl("https://niggelgame.pythonanywhere.com/api/data",//"http://10.0.2.2:5000/api/data",
@@ -117,7 +117,7 @@ class _IntrayPageState extends State<IntrayPage> {
                                     
                                     //print("HEYHOOOOOO\n\n\n\n\n\n");
                                     setState(() {
-                                      _isLoadingPage = false;
+                                      // _isLoadingPage = false;
                                     });
                                     
                         //             print(_controller);
