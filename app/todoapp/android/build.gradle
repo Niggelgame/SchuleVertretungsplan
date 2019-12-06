@@ -11,14 +11,12 @@ buildscript {
     }
 }
 
-import org.ajoberstar.grgit.Grgit
 
-def commitTimestamp = Grgit.open(currentDir: projectDir).head().time
 
 android {
     defaultConfig {
-        versionCode commitTimestamp
-        versionName "1.2.$commitTimestamp" //optional
+        versionCode 2
+        versionName "0.1" //optional
     }
 }
 
