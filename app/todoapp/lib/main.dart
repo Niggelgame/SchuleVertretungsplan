@@ -4,6 +4,7 @@ import 'package:todoapp/UI/Intray/intray_page.dart';
 import 'package:todoapp/UI/Login/loginscreen.dart';
 import 'package:todoapp/models/global.dart';
 import 'package:todoapp/bloc/blocs/user_bloc_provider.dart';
+import 'package:onesignal_flutter/onesignal_flutter.dart';
 
 void main() => runApp(MyApp());
 
@@ -11,6 +12,15 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+
+     OneSignal.shared.init(
+      "5c2db3b9-64d0-4c42-b2c9-2054484b4da3",
+      iOSSettings: {
+        OSiOSSettings.autoPrompt: true,
+        OSiOSSettings.inAppLaunchUrl: true
+      }
+    );
+    OneSignal.shared.setInFocusDisplayType(OSNotificationDisplayType.notification);
     
     return MaterialApp(
       debugShowCheckedModeBanner: false,
