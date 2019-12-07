@@ -5,6 +5,8 @@ from models import db, User
 import random
 import string
 import time
+import requests
+import json
 
 
 
@@ -49,6 +51,18 @@ class LoadData(Resource):
         f = open("templates/test.html", "w+")
         f.write("".join(map(chr, request.data)))
         f.close()
+
+
+        header = {"Content-Type": "application/json; charset=utf-8",
+          "Authorization": "Basic YWE4ZjczZmMtNjI4OS00YWY2LWEzNTEtZjU1YzIxNmViYmEw"}
+
+        payload = {"app_id": "5c2db3b9-64d0-4c42-b2c9-2054484b4da3",
+                "included_segments": ["All"],
+                "contents": {"en": "Neuer Vertretungsplan verfügbar!"}}
+        
+        req = requests.post("https://onesignal.com/api/v1/notifications", headers=header, data=json.dumps(payload))
+        
+        print(req.status_code, req.reason)
         return {"status": "success"}, 201
     #def post(self):
         
