@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:todoapp/models/global.dart';
@@ -50,6 +52,10 @@ class _IntrayPageState extends State<IntrayPage> {
 
                     if(snapshot.hasData){
                       return WebView(
+
+                        gestureRecognizers: [
+        Factory(() => PlatformViewVerticalGestureRecognizer()),
+      ].toSet(),
                         
                       
                         //initialUrl: "https://pub.dev/packages/webview_flutter#-installing-tab-",
@@ -59,6 +65,7 @@ class _IntrayPageState extends State<IntrayPage> {
                         onWebViewCreated: (WebViewController webViewController) {
                           
                           print(_controller);
+                          
                           webViewController.loadUrl("https://niggelgame.pythonanywhere.com/api/data",//"http://10.0.2.2:5000/api/data",
                            headers: {
                             "Authorization": snapshot.data
@@ -193,4 +200,45 @@ class _IntrayPageState extends State<IntrayPage> {
 
     return apiKey;
   }
+
+
+  
+}
+
+class PlatformViewVerticalGestureRecognizer
+    extends VerticalDragGestureRecognizer {
+  PlatformViewVerticalGestureRecognizer({PointerDeviceKind kind})
+      : super(kind: kind);
+
+  Offset _dragDistance = Offset.zero;
+
+  @override
+  void addPointer(PointerEvent event) {
+    startTrackingPointer(event.pointer);
+  }
+
+  @override
+  void handleEvent(PointerEvent event) {
+    _dragDistance = _dragDistance + event.delta;
+    if (event is PointerMoveEvent) {
+      final double dy = _dragDistance.dy.abs();
+      final double dx = _dragDistance.dx.abs();
+
+      if (dy > dx && dy > kTouchSlop) {
+        // vertical drag - accept
+        resolve(GestureDisposition.accepted);
+        _dragDistance = Offset.zero;
+      } else if (dx > kTouchSlop && dx > dy) {
+        // horizontal drag - stop tracking
+        stopTrackingPointer(event.pointer);
+        _dragDistance = Offset.zero;
+      }
+    }
+  }
+
+  @override
+  String get debugDescription => 'horizontal drag (platform view)';
+
+  @override
+  void didStopTrackingLastPointer(int pointer) {}
 }
