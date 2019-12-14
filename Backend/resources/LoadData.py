@@ -1,5 +1,5 @@
 from flask_restful import Resource
-from flask import request
+from flask import request, Response
 from flask import render_template, make_response
 from models import db, User
 import random
@@ -25,8 +25,13 @@ class LoadData(Resource):
             if user:
                 #htmldata = self.getData()
                 headers = {'Content-Type': 'text/html'}
+                r = Response()
+                r.headers = headers
+                r.data = render_template("test.html").encode("latin-1")
+                r.status_code = 200
                 
-                return make_response(render_template("test.html"),200,headers)
+                
+                return make_response(render_template("test.html").encode("latin-1"),200,headers,)
                 # return render_template("index.html")
             else:
                 return  { 'message' : 'Something went wrong while receving the call'}, 401
@@ -35,7 +40,7 @@ class LoadData(Resource):
 
     def getData(self):
         contents = ""
-        f = open("resources/index.html", "r", encoding="utf8")
+        f = open("resources/index.html", "r", encoding="latin-1")
         #contents = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>Document</title>ww</head>ww<body>ww    Testww</body>ww</html>'
         if f.mode == 'r':
             contents = f.read()
@@ -46,10 +51,11 @@ class LoadData(Resource):
         return contents
 
     def post(self):
-        print(request.data)
+        stringdata = request.get_data(as_text=True)
+        stringdata.replace('<meta http-equiv="refresh" content="8; URL=subst_001.htm">', "")
         print(request.headers['Authorization'])
         f = open("templates/test.html", "w+")
-        f.write("".join(map(chr, request.data)))
+        f.write(stringdata)
         f.close()
 
 
