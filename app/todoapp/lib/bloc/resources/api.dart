@@ -3,7 +3,7 @@ import 'package:http/http.dart' show Client;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
 import 'package:todoapp/models/classes/user.dart';
-//import 'package:fluttertoast/fluttertoast.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class ApiProvider {
   Client client = new Client();
@@ -52,26 +52,26 @@ class ApiProvider {
           print("falsch!!!");
           // needs to be commented because IOS is somehow not supporting Toasts...
           // if possible please fix fluttertoast
-          //  Fluttertoast.showToast(
-          //    msg: "Falscher Benutzername oder Password",
-          //    toastLength: Toast.LENGTH_SHORT,
-          //    gravity: ToastGravity.CENTER,
-          //    timeInSecForIos: 1,
+            Fluttertoast.showToast(
+              msg: "Falscher Benutzername oder Password",
+              toastLength: Toast.LENGTH_SHORT,
+              gravity: ToastGravity.CENTER,
+              timeInSecForIos: 1,
             
-          //    fontSize: 16.0
-          //  );
+              fontSize: 16.0
+            );
           return false;
         } 
     
     } catch (e) {
-      //  Fluttertoast.showToast(
-      //        msg: "Keine Verbindung zum Server!",
-      //        toastLength: Toast.LENGTH_SHORT,
-      //        gravity: ToastGravity.CENTER,
-      //        timeInSecForIos: 1,
+        Fluttertoast.showToast(
+              msg: "Keine Verbindung zum Server!",
+              toastLength: Toast.LENGTH_SHORT,
+              gravity: ToastGravity.CENTER,
+              timeInSecForIos: 1,
             
-      //        fontSize: 16.0
-      //      );
+              fontSize: 16.0
+            );
            return false;
     }
   }
