@@ -5,6 +5,7 @@ import 'package:todoapp/UI/Login/loginscreen.dart';
 import 'package:todoapp/models/global.dart';
 import 'package:todoapp/bloc/blocs/user_bloc_provider.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
+import 'package:connectivity/connectivity.dart';
 
 void main() => runApp(MyApp());
 
@@ -94,9 +95,25 @@ class _MyHomePageState extends State<MyHomePage> {
           } else {
             print("No data");
           }
+
+          return FutureBuilder(
+            future: checkConnectivity(),
+            builder: (BuildContext context, AsyncSnapshot snapshot){
+              bool connectionState = true;
+              if(snapshot.hasData){
+                connectionState = snapshot.data;
+              }
+
+              if(connectionState){
+                return  apiKey.length > 0 ? getHomePage() : LoginPage(login: login, newUser: false,);
+              } else {
+                return getHomePage();
+              }
+            },
+          );
           //String apiKey = snapshot.data;
           
-          return  apiKey.length > 0 ? getHomePage() : LoginPage(login: login, newUser: false,);
+          //return  apiKey.length > 0 ? getHomePage() : LoginPage(login: login, newUser: false,);
           //return LoginPage();
           
         },
@@ -112,13 +129,22 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  Future checkConnectivity() async{
+    var connectivityResult = await (Connectivity().checkConnectivity());
+    if (connectivityResult == ConnectivityResult.mobile || connectivityResult == ConnectivityResult.wifi) {
+      return true;
+    } else {
+      return false;
+    } 
+  }
+
   Future signinUser() async {
     // String userName = "";
     String apikey = await getApiKey();
     if (apikey.length > 0) {
       bloc.signinUser("", "", apikey).then((reallyloggedin){
         if(!reallyloggedin){
-          logout();
+          //logout();
           return "";
         }
         return apikey;
