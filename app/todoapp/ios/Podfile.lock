@@ -1,4 +1,7 @@
 PODS:
+  - connectivity (0.0.1):
+    - Flutter
+    - Reachability
   - Flutter (1.0.0)
   - fluttertoast (0.0.2):
     - Flutter
@@ -6,12 +9,14 @@ PODS:
   - onesignal_flutter (2.3.1):
     - Flutter
     - OneSignal (= 2.12.2)
+  - Reachability (3.2)
   - shared_preferences (0.0.1):
     - Flutter
   - webview_flutter (0.0.1):
     - Flutter
 
 DEPENDENCIES:
+  - connectivity (from `.symlinks/plugins/connectivity/ios`)
   - Flutter (from `Flutter`)
   - fluttertoast (from `.symlinks/plugins/fluttertoast/ios`)
   - onesignal_flutter (from `.symlinks/plugins/onesignal_flutter/ios`)
@@ -21,8 +26,11 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - OneSignal
+    - Reachability
 
 EXTERNAL SOURCES:
+  connectivity:
+    :path: ".symlinks/plugins/connectivity/ios"
   Flutter:
     :path: Flutter
   fluttertoast:
@@ -35,10 +43,12 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/webview_flutter/ios"
 
 SPEC CHECKSUMS:
+  connectivity: 6e94255659cc86dcbef1d452ad3e0491bb1b3e75
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
   fluttertoast: b644586ef3b16f67fae9a1f8754cef6b2d6b634b
   OneSignal: b2c1511c6b5db2d3b0ce1859f574dcf190dde5f3
   onesignal_flutter: 289d8b75eaa81fc80d657ffa450253a654f5514a
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   shared_preferences: 430726339841afefe5142b9c1f50cb6bd7793e01
   webview_flutter: db3aba222b23e4dc432e0c5882834123dc50ff9f
 
