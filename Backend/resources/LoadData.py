@@ -52,7 +52,7 @@ class LoadData(Resource):
 
     def post(self):
         stringdata = request.get_data(as_text=True)
-        stringdata.replace('<meta http-equiv="refresh" content="8; URL=subst_001.htm">', "")
+        stringdata.replace('<meta http-equiv="refresh" content="8; URL=subst_001.htm">', '<meta name="viewport" content="width=1000, initial-scale=0">')
         print(request.headers['Authorization'])
         f = open("templates/test.html", "w+")
         f.write(stringdata)

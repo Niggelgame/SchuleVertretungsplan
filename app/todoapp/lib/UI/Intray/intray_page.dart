@@ -43,6 +43,7 @@ class _IntrayPageState extends State<IntrayPage> {
           margin: EdgeInsets.only(top: 80),
           color: Colors.green,
           child: Scaffold(
+            
             body:
             // body: Stack(
             //   children: <Widget>[
@@ -59,7 +60,6 @@ class _IntrayPageState extends State<IntrayPage> {
                         
                       
                         //initialUrl: "https://pub.dev/packages/webview_flutter#-installing-tab-",
-
                         
                         javascriptMode: JavascriptMode.unrestricted,
                         onWebViewCreated: (WebViewController webViewController) {
