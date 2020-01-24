@@ -51,24 +51,28 @@ class LoadData(Resource):
         return contents
 
     def post(self):
-        stringdata = request.get_data(as_text=True)
+        stringdataformat = request.get_data(as_text=True)
+        stringdatasplit = stringdataformat.split("===")
+        
+        print("HELLO")
+        stringdata =stringdatasplit[1]#request.get_data(as_text=True)
         stringdata.replace('<meta http-equiv="refresh" content="8; URL=subst_001.htm">', '<meta name="viewport" content="width=1000, initial-scale=0">')
         print(request.headers['Authorization'])
         f = open("templates/test.html", "w+")
         f.write(stringdata)
         f.close()
 
+        if stringdatasplit[0] == "true":
+            header = {"Content-Type": "application/json; charset=utf-8",
+            "Authorization": "Basic YWE4ZjczZmMtNjI4OS00YWY2LWEzNTEtZjU1YzIxNmViYmEw"}
 
-        header = {"Content-Type": "application/json; charset=utf-8",
-          "Authorization": "Basic YWE4ZjczZmMtNjI4OS00YWY2LWEzNTEtZjU1YzIxNmViYmEw"}
-
-        payload = {"app_id": "5c2db3b9-64d0-4c42-b2c9-2054484b4da3",
-                "included_segments": ["All"],
-                "contents": {"en": "Neuer Vertretungsplan verfügbar!"}}
-        
-        req = requests.post("https://onesignal.com/api/v1/notifications", headers=header, data=json.dumps(payload))
-        
-        print(req.status_code, req.reason)
+            payload = {"app_id": "5c2db3b9-64d0-4c42-b2c9-2054484b4da3",
+                    "included_segments": ["All"],
+                    "contents": {"en": "Neuer Vertretungsplan verfügbar!"}}
+            
+            req = requests.post("https://onesignal.com/api/v1/notifications", headers=header, data=json.dumps(payload))
+            
+            print(req.status_code, req.reason)
         return {"status": "success"}, 201
     #def post(self):
         
