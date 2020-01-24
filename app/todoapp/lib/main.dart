@@ -171,6 +171,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 body: Stack(
                   children: <Widget>[
                     TabBarView(
+                      physics: NeverScrollableScrollPhysics(),
                       children: [
                         IntrayPage(),
                         new Container(
