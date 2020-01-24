@@ -109,6 +109,7 @@ class _LoginPageState extends State<LoginPage> {
                     child: TextField(
                       controller: usernameText,
                       autofocus: false,
+                      cursorColor: darkGreyColor,
                       style: TextStyle(fontSize: 22.0, color: darkGreyColor),
                       decoration: InputDecoration(
                         filled: true,
@@ -135,6 +136,7 @@ class _LoginPageState extends State<LoginPage> {
                       obscureText: true,
                       controller: passwordText,
                       autofocus: false,
+                      cursorColor: darkGreyColor,
                       style: TextStyle(fontSize: 22.0, color: darkGreyColor),
                       decoration: InputDecoration(
                         filled: true,
