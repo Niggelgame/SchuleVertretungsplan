@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:todoapp/UI/Intray/intray_page.dart';
 import 'package:todoapp/UI/Login/loginscreen.dart';
@@ -13,8 +14,11 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-
-     OneSignal.shared.init(
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark.copyWith(
+      statusBarColor: Colors.white, // Color for Android
+      statusBarBrightness: Brightness.dark // Dark == white status bar -- for IOS.
+    ));
+    OneSignal.shared.init(
       "5c2db3b9-64d0-4c42-b2c9-2054484b4da3",
       iOSSettings: {
         OSiOSSettings.autoPrompt: true,
