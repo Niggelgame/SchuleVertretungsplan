@@ -105,10 +105,11 @@ class _LoginPageState extends State<LoginPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
                   Theme(
-                    data: Theme.of(context).copyWith(splashColor: Colors.transparent),
+                    data: Theme.of(context).copyWith(splashColor: darkGreyColor),
                     child: TextField(
                       controller: usernameText,
                       autofocus: false,
+                      cursorColor: darkGreyColor,
                       style: TextStyle(fontSize: 22.0, color: darkGreyColor),
                       decoration: InputDecoration(
                         filled: true,
@@ -129,11 +130,12 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   Theme(
-                    data: Theme.of(context).copyWith(splashColor: Colors.transparent),
+                    data: Theme.of(context).copyWith(splashColor: darkGreyColor),
                     child: TextField(
                       autocorrect: false,
                       obscureText: true,
                       controller: passwordText,
+                      cursorColor: darkGreyColor,
                       autofocus: false,
                       style: TextStyle(fontSize: 22.0, color: darkGreyColor),
                       decoration: InputDecoration(
