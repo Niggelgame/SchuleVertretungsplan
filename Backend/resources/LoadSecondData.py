@@ -54,6 +54,12 @@ class LoadSecondData(Resource):
         stringdataformat = request.get_data(as_text=True)
         stringdatasplit = stringdataformat.split("===")
         
+        arguments = stringdatasplit[0].split(":::")
+        if arguments[0] == "true":
+            f = open("templates/index2.html", "w+")
+            f.write("No current plan")
+            f.close()
+            return {"status": "success"}, 201
         print("HELLO")
         stringdata =stringdatasplit[1]#request.get_data(as_text=True)
         stringdata.replace('<meta http-equiv="refresh" content="8; URL=subst_001.htm">', '<meta name="viewport" content="width=1000, initial-scale=0">')
@@ -62,7 +68,9 @@ class LoadSecondData(Resource):
         f.write(stringdata)
         f.close()
 
-        if stringdatasplit[0] == "true":
+        arguments = stringdatasplit[0].split(":::")
+
+        if arguments[1] == "true":
             header = {"Content-Type": "application/json; charset=utf-8",
             "Authorization": "Basic YWE4ZjczZmMtNjI4OS00YWY2LWEzNTEtZjU1YzIxNmViYmEw"}
 
