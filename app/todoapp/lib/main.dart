@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:todoapp/UI/Intray/intray_page.dart';
+import 'package:todoapp/UI/Intray/intray_page2.dart';
 import 'package:todoapp/UI/Login/loginscreen.dart';
 import 'package:todoapp/models/global.dart';
 import 'package:todoapp/bloc/blocs/user_bloc_provider.dart';
@@ -173,7 +174,7 @@ class _MyHomePageState extends State<MyHomePage> {
           color: darkGreyColor,
             child: SafeArea(
               child: DefaultTabController(
-              length: 2,
+              length: 3,
               child: new Scaffold(
                 body: Stack(
                   children: <Widget>[
@@ -181,6 +182,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       physics: NeverScrollableScrollPhysics(),
                       children: [
                         IntrayPage(),
+                        IntrayPage2(),
                         new Container(
                           child: Center(
                             child: FlatButton(
@@ -239,11 +241,14 @@ class _MyHomePageState extends State<MyHomePage> {
                     title: new TabBar(
                     tabs: [
                       Tab(
-                        icon: new Icon(Icons.home),
+                        icon: new Icon(Icons.today),
                       
                       ),
                       Tab(
-                        icon: new Icon(Icons.perm_identity),
+                        icon: new Icon(Icons.calendar_today),
+                      ),
+                      Tab(
+                        icon: new Icon(Icons.settings),
                       ),
                       
                     ],
