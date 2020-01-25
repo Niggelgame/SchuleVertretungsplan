@@ -1,140 +1,279 @@
-=<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>@yield("title")</title>
-    <!--<link rel="shortcut icon" href="{% static 'admin/img/favicon.ICO' %}"> !-->
-    <link rel="stylesheet" href="/public/assets/styles/loader.css" type="text/css">
-    <script src="https://kit.fontawesome.com/e69757f74c.js" crossorigin="anonymous"></script>
-</head>
-
-
-<body>
-
-<div id="content" class="wrapper">
-
-    <div id="loader-wrapper">
-        <div id="loader">
-            <p>LOADING</p>
-            <div class="circ-one"></div>
-            <div class="circ-two"></div>
-        </div>
-
-        <div class="loader-section section-left"></div>
-        <div class="loader-section section-right"></div>
-    </div>
-
-</div>
-<header>
-    <div class="sticky">
-        <div class="header">
-
-            <div class="logo">
-                <a href="/">Kedil</a>
-            </div>
-
-            <nav>
-                <ul>
-                    <li><a href="/maeuse/">Mäuse</a></li>
-                    <li><a href="/tastaturen/">Tastaturen</a></li>
-                    <li><a href="/headsets/">Headsets</a></li>
-                    <li><a href="/mauspads/">Mauspads</a></li>
-                </ul>
-            </nav>
-            <div class="menu-toggle" onclick="clickFunction(this)">
-
-                <div class="bar1"></div>
-                <div class="bar2"></div>
-                <div class="bar3"></div>
-
-            </div>
-        </div>
-    </div>
-</header>
-@if ($showPopup):
-<div id="cookie-popup">
-    <div class="hinweis">
-        <p>Wir verwenden Cookies. Durch die weitere Nutzung der Webseite stimmen Sie der Verwendung von Cookies zu.</p>
-    </div>
-    <span class="more">
-      <a href="/datenschutz">Details</a>
-    </span>
-    <button onclick='cookieOk()'>OK, ich bin einverstanden.</button>
-</div>
-
-
-@endif
-<div class="boxed">
-    @yield("content")
-</div>
-<footer>
-    <div class="container">
-        <div class="info">
-            <h3>Informationen</h3>
-        </div>
-        <div class="col-group">
-            <div class="col-4">
-                <h3>Links</h3>
-                <ul>
-                    <li><a href="/agb/">AGB</a></li>
-                    <li><a href="/kontakt/">Kontakt</a></li>
-                    <li><a href="/impressum/">Impressum</a></li>
-                    <li><a href="/">{{ date("Y") }}, Kedil</a></li>
-                    <li><a href="/datenschutz/">Datenschutz</a></li>
-                </ul>
-            </div>
-            <div class="col-4">
-                <h3>Social media</h3>
-                <div class="mid">
-                    <ul>
-                        <li>
-                            <a href="https://www.instagram.com/kedilinfo/" target="_blank">
-                                <i class="fab fa-instagram"></i>
-                                <span class="tooltip">Instagram</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.facebook.com/kedil.comp" target="_blank">
-                                <i class="fab fa-facebook-square"></i>
-                                <span class="tooltip">Facebook</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://twitter.com/kedilcomp" target="_blank">
-                                <i class="fab fa-twitter"></i>
-                                <span class="tooltip">Twitter</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="Paypal" target="_blank">
-                                <i class="fab fa-paypal"></i>
-                                <span class="tooltip">PayPal</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-4">
-                <h3>Kategorien</h3>
-                <ul class="right">
-                    <li><a href="/maeuse/">Mäuse</a></li>
-                    <li><a href="/headsets/">Headsets</a></li>
-                    <li><a href="/tastaturen/">Tastaturen</a></li>
-                    <li><a href="/mousepads/">Mousepads</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<link rel="stylesheet" href="/public/assets/styles/fluidable-min.css" type="text/css">
-<link rel="stylesheet" href="/public/assets/styles/style.css" type="text/css">
-
-<script src="/public/assets/js/main.js"></script>
-<script>
-    document.getElementsByClassName('wrapper')[0].classList.add("loaded");
-</script>
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>@yield("title")</title>
+
+    <!--<link rel="shortcut icon" href="{% static 'admin/img/favicon.ICO' %}"> !-->
+
+    <link rel="stylesheet" href="/public/assets/styles/loader.css" type="text/css">
+
+    <script src="https://kit.fontawesome.com/e69757f74c.js" crossorigin="anonymous"></script>
+
+</head>
+
+
+
+
+
+<body>
+
+
+
+<div id="content" class="wrapper">
+
+
+
+    <div id="loader-wrapper">
+
+        <div id="loader">
+
+            <p>LOADING</p>
+
+            <div class="circ-one"></div>
+
+            <div class="circ-two"></div>
+
+        </div>
+
+
+
+        <div class="loader-section section-left"></div>
+
+        <div class="loader-section section-right"></div>
+
+    </div>
+
+
+
+</div>
+
+<header>
+
+    <div class="sticky">
+
+        <div class="header">
+
+
+
+            <div class="logo">
+
+                <a href="/">Kedil</a>
+
+            </div>
+
+
+
+            <nav>
+
+                <ul>
+
+                    <li><a href="/maeuse/">Mäuse</a></li>
+
+                    <li><a href="/tastaturen/">Tastaturen</a></li>
+
+                    <li><a href="/headsets/">Headsets</a></li>
+
+                    <li><a href="/mauspads/">Mauspads</a></li>
+
+                </ul>
+
+            </nav>
+
+            <div class="menu-toggle" onclick="clickFunction(this)">
+
+
+
+                <div class="bar1"></div>
+
+                <div class="bar2"></div>
+
+                <div class="bar3"></div>
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+@if ($showPopup):
+
+<div id="cookie-popup">
+
+    <div class="hinweis">
+
+        <p>Wir verwenden Cookies. Durch die weitere Nutzung der Webseite stimmen Sie der Verwendung von Cookies zu.</p>
+
+    </div>
+
+    <span class="more">
+
+      <a href="/datenschutz">Details</a>
+
+    </span>
+
+    <button onclick='cookieOk()'>OK, ich bin einverstanden.</button>
+
+</div>
+
+
+
+
+
+@endif
+
+<div class="boxed">
+
+    @yield("content")
+
+</div>
+
+<footer>
+
+    <div class="container">
+
+        <div class="info">
+
+            <h3>Informationen</h3>
+
+        </div>
+
+        <div class="col-group">
+
+            <div class="col-4">
+
+                <h3>Links</h3>
+
+                <ul>
+
+                    <li><a href="/agb/">AGB</a></li>
+
+                    <li><a href="/kontakt/">Kontakt</a></li>
+
+                    <li><a href="/impressum/">Impressum</a></li>
+
+                    <li><a href="/">{{ date("Y") }}, Kedil</a></li>
+
+                    <li><a href="/datenschutz/">Datenschutz</a></li>
+
+                </ul>
+
+            </div>
+
+            <div class="col-4">
+
+                <h3>Social media</h3>
+
+                <div class="mid">
+
+                    <ul>
+
+                        <li>
+
+                            <a href="https://www.instagram.com/kedilinfo/" target="_blank">
+
+                                <i class="fab fa-instagram"></i>
+
+                                <span class="tooltip">Instagram</span>
+
+                            </a>
+
+                        </li>
+
+                        <li>
+
+                            <a href="https://www.facebook.com/kedil.comp" target="_blank">
+
+                                <i class="fab fa-facebook-square"></i>
+
+                                <span class="tooltip">Facebook</span>
+
+                            </a>
+
+                        </li>
+
+                        <li>
+
+                            <a href="https://twitter.com/kedilcomp" target="_blank">
+
+                                <i class="fab fa-twitter"></i>
+
+                                <span class="tooltip">Twitter</span>
+
+                            </a>
+
+                        </li>
+
+                        <li>
+
+                            <a href="Paypal" target="_blank">
+
+                                <i class="fab fa-paypal"></i>
+
+                                <span class="tooltip">PayPal</span>
+
+                            </a>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <div class="col-4">
+
+                <h3>Kategorien</h3>
+
+                <ul class="right">
+
+                    <li><a href="/maeuse/">Mäuse</a></li>
+
+                    <li><a href="/headsets/">Headsets</a></li>
+
+                    <li><a href="/tastaturen/">Tastaturen</a></li>
+
+                    <li><a href="/mousepads/">Mousepads</a></li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<link rel="stylesheet" href="/public/assets/styles/fluidable-min.css" type="text/css">
+
+<link rel="stylesheet" href="/public/assets/styles/style.css" type="text/css">
+
+
+
+<script src="/public/assets/js/main.js"></script>
+
+<script>
+
+    document.getElementsByClassName('wrapper')[0].classList.add("loaded");
+
+</script>
+
 </body>

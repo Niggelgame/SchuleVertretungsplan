@@ -12,7 +12,7 @@ import json
 
 
 
-class LoadData(Resource):
+class LoadSecondData(Resource):
     def get(self):
         header = request.headers['Authorization']
         
@@ -27,11 +27,11 @@ class LoadData(Resource):
                 headers = {'Content-Type': 'text/html'}
                 r = Response()
                 r.headers = headers
-                r.data = render_template("index.html").encode("latin-1")
+                r.data = render_template("index2.html").encode("latin-1")
                 r.status_code = 200
                 
                 
-                return make_response(render_template("index.html").encode("latin-1"),200,headers,)
+                return make_response(render_template("index2.html").encode("latin-1"),200,headers,)
                 # return render_template("index.html")
             else:
                 return  { 'message' : 'Something went wrong while receving the call'}, 401
@@ -58,7 +58,7 @@ class LoadData(Resource):
         stringdata =stringdatasplit[1]#request.get_data(as_text=True)
         stringdata.replace('<meta http-equiv="refresh" content="8; URL=subst_001.htm">', '<meta name="viewport" content="width=1000, initial-scale=0">')
         print(request.headers['Authorization'])
-        f = open("templates/index.html", "w+")
+        f = open("templates/index2.html", "w+")
         f.write(stringdata)
         f.close()
 
