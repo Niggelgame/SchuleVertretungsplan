@@ -2,11 +2,13 @@ from flask_restful import Resource
 from flask import request, Response
 import requests
 import json
+from SecureKey import SecureKey
 
 class MakeNotification(Resource):
     def post(self):
+        
         header = request.headers["Authorization"]
-        if header == "HPU9mKF2A8J4MwyXqQmiuvdwXaxnFT2ASnOvWiIOrZ9X3qWkrp":
+        if header == SecureKey.key:
             json_data = request.get_json(force=True)
             if not json_data:
                 return { 'message' : 'No Input data provided'}, 401

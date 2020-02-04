@@ -12,7 +12,7 @@ class IntrayPage2 extends StatefulWidget {
   _IntrayPageState2 createState() => _IntrayPageState2();
 }
 
-class _IntrayPageState2 extends State<IntrayPage2> {
+class _IntrayPageState2 extends State<IntrayPage2> with AutomaticKeepAliveClientMixin{
   
   bool _isLoadingPage = true;
   @override
@@ -200,6 +200,10 @@ class _IntrayPageState2 extends State<IntrayPage2> {
 
     return apiKey;
   }
+
+  @override
+  // TODO: implement wantKeepAlive
+  bool get wantKeepAlive => true;
 
 
   

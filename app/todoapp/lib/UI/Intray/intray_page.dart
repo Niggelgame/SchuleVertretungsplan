@@ -12,7 +12,7 @@ class IntrayPage extends StatefulWidget {
   _IntrayPageState createState() => _IntrayPageState();
 }
 
-class _IntrayPageState extends State<IntrayPage> {
+class _IntrayPageState extends State<IntrayPage> with AutomaticKeepAliveClientMixin{
   
   bool _isLoadingPage = true;
   @override
@@ -40,7 +40,7 @@ class _IntrayPageState extends State<IntrayPage> {
         color: Colors.white,
           child: Container(
           //padding: EdgeInsets.only(top: 300),
-          margin: EdgeInsets.only(top: 80),
+          margin: EdgeInsets.only(top: 90),
           color: Colors.green,
           child: Scaffold(
             
@@ -53,6 +53,7 @@ class _IntrayPageState extends State<IntrayPage> {
 
                     if(snapshot.hasData){
                       return WebView(
+                        //gestureNavigationEnabled: true,
 
                         gestureRecognizers: [
         Factory(() => PlatformViewVerticalGestureRecognizer()),
@@ -200,6 +201,10 @@ class _IntrayPageState extends State<IntrayPage> {
 
     return apiKey;
   }
+
+  @override
+  // TODO: implement wantKeepAlive
+  bool get wantKeepAlive => true;
 
 
   
