@@ -40,7 +40,7 @@ class _IntrayPageState2 extends State<IntrayPage2> with AutomaticKeepAliveClient
         color: Colors.white,
           child: Container(
           //padding: EdgeInsets.only(top: 300),
-          margin: EdgeInsets.only(top: 80),
+          margin: EdgeInsets.only(top: 90),
           color: Colors.green,
           child: Scaffold(
             
