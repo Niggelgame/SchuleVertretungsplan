@@ -184,6 +184,27 @@ class _MyHomePageState extends State<MyHomePage> {
                         IntrayPage(),
                         IntrayPage2(),
                         new Container(
+                          decoration: BoxDecoration(
+                            // gradient: LinearGradient(
+                            //   begin: Alignment.centerLeft,
+                            //   end:  Alignment.centerRight,
+                            //   colors: [
+                            //     Color(0xFFABDCFF),
+                            //     Color(0xFF0396FF)
+                            //   ],
+                            //   stops: [0, 0.9],
+                            // ),
+                            gradient: RadialGradient(
+                              colors: [
+                                //Color(0xFFABDCFF),
+                                //Color(0xFF0396FF)
+                                Color(0xFF5EFCE8),
+                                Color(0xFF736EFE)
+                              ],
+                              center: const Alignment(-0.7, -1),
+                              radius: 2.5
+                            )
+                          ),
                           child: Center(
                             child: FlatButton(
                               color: redColor,
@@ -193,7 +214,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               },
                             ),
                           ),
-                          color: Colors.lightGreen,
+                          //color: Colors.lightGreen,
                         ),
                         
                       ],
