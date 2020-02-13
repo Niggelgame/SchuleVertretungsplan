@@ -19,6 +19,7 @@ class _IntrayPageState extends State<IntrayPage> {
     return Container(
       color: Colors.white,
       child: SafeArea(
+        bottom: false,
         child: DefaultTabController(
           length: 3,
           child: Scaffold(
