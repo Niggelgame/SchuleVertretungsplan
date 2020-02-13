@@ -87,6 +87,7 @@ class MyApp extends StatelessWidget {
         bottom: false,
         child: Container(
           child: SafeArea(
+            bottom: false,
             child: BlocBuilder<AuthenticationBloc, AuthenticationState>(
               builder: (context, state){
                 if(state is AuthenticationUninitialized){
