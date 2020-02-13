@@ -57,6 +57,7 @@ class _IntrayPageContentTwoState extends State<IntrayPageContentTwo> with Automa
             if(state is ApiTokenLoaded){
               return Container(
                 margin: EdgeInsets.only(top: 80),
+                color: Colors.white,
                 child: Scaffold(
                   body: WebView(
                     gestureRecognizers: [Factory(() => PlatformViewVerticalGestureRecognizer())].toSet(),
