@@ -83,8 +83,10 @@ class ApiProvider{
       print(response.statusCode);
       if(response.statusCode == 202){
         return ServerState.authed;
-      } else {
+      } else if (response.statusCode == 401){
         return ServerState.unauthed;
+      } else {
+        return await checkApiToken(apiKey);
       }
     } catch (error) { 
         client.close();
