@@ -17,7 +17,7 @@ class _IntrayPageState extends State<IntrayPage> {
   @override 
   Widget build(BuildContext context){
     return Container(
-      color: darkGreyColor,
+      color: Colors.white,
       child: SafeArea(
         child: DefaultTabController(
           length: 3,

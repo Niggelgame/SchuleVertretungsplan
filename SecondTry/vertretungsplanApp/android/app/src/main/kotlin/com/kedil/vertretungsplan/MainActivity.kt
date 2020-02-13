@@ -1,4 +1,4 @@
-package com.kedil.vertretungsplanApp
+package com.kedil.vertretungsplan
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity
