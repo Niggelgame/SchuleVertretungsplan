@@ -33,7 +33,7 @@ class Signin(Resource):
             else:
                 return self.user_and_password_signin(json_data)
 
-        return {"status": 'success', 'data': result}, 201
+        return {"status": 'success', 'data': result}, 202
 
     def user_and_password_signin(self, json_data):
         if not json_data:
@@ -45,12 +45,12 @@ class Signin(Resource):
 
         user = User.query.filter_by(username=json_data['username']).first()
         if not user:
-            return {'message' : 'Username not available'}, 400
+            return {'message' : 'Username not available'}, 401
 
         if user.password != json_data['password']:
-            return {'message': 'Password incorrect'}, 400
+            return {'message': 'Password incorrect'}, 401
             
-        return {'message': 'success', 'data': User.serialize(user)}, 201
+        return {'message': 'success', 'data': User.serialize(user)}, 202
 
 
         
