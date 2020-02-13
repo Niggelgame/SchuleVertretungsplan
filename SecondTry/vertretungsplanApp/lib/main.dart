@@ -86,7 +86,6 @@ class MyApp extends StatelessWidget {
       home: SafeArea(
         bottom: false,
         child: Container(
-          color: Colors.white,
           child: SafeArea(
             child: BlocBuilder<AuthenticationBloc, AuthenticationState>(
               builder: (context, state){
