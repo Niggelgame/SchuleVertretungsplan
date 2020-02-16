@@ -64,7 +64,7 @@ android {
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        versionCode 11
+        versionCode 12
         versionName "0.2"
     }
 
