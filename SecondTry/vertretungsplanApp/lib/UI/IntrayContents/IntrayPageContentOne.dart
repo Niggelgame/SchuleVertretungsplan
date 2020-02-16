@@ -25,7 +25,6 @@ class _IntrayPageContentOneState extends State<IntrayPageContentOne> with Automa
   @override
   bool get wantKeepAlive => true;
   final Completer<WebViewController> _controller = Completer<WebViewController>();
-  bool loading = true;
 
 
   @override 
@@ -70,21 +69,10 @@ class _IntrayPageContentOneState extends State<IntrayPageContentOne> with Automa
                             headers: {
                             "Authorization": state.apiToken
                           }).whenComplete(() {
-                            setState(() {
-                              loading = false;
-                            });
                             _controller.complete(webViewController);
                           });
                         },
                       ),
-                      !loading ? Container(height: 0, width: 0,) : Container(
-                        color: Colors.white,
-                        child: Expanded(
-                          child: Center(
-                            child: CupertinoActivityIndicator(animating: true,),
-                          ),
-                        ),
-                      )
                       
                     ],
                   ),
@@ -96,16 +84,9 @@ class _IntrayPageContentOneState extends State<IntrayPageContentOne> with Automa
                           child: Icon(Icons.refresh, color: Colors.black,),
                           backgroundColor: redColor,
                           onPressed: () {
-                            setState(() {
-                              loading = true;
-                            });
                             controller.data.loadUrl("https://niggelgame.pythonanywhere.com/api/data",
                             headers: {
                             "Authorization": state.apiToken
-                            }).whenComplete(() {
-                              setState(() {
-                                loading = false;
-                              });
                             });
                           },
                         );
