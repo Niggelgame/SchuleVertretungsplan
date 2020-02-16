@@ -91,19 +91,19 @@ class MyApp extends StatelessWidget {
             child: BlocBuilder<AuthenticationBloc, AuthenticationState>(
               builder: (context, state){
                 if(state is AuthenticationUninitialized){
-                  return SplashScreen();
+                  return AnimatedSwitcher(child: SplashScreen(), duration: Duration(milliseconds: 500),);
                 }
                 if(state is AuthenticationAuthenticated){
-                  return IntrayPage();
+                  return AnimatedSwitcher(duration:Duration(milliseconds: 500),child: IntrayPage());
                 }
                 if(state is AuthenticationUnauthenticated){
-                  return LoginPage(userRepository: userRepository,);
+                  return AnimatedSwitcher(duration:Duration(milliseconds: 500),child: LoginPage(userRepository: userRepository,));
                 }
                 if(state is AuthenticationLoading){
-                  return LoadingIndicator();
+                  return AnimatedSwitcher(duration:Duration(milliseconds: 500),child:LoadingIndicator());
                 }
                 if(state is AuthenticationNoConnection){
-                  return NoConnectionScreen();
+                  return AnimatedSwitcher(duration:Duration(milliseconds: 500),child:NoConnectionScreen());
                 }
               },
             )

@@ -25,6 +25,7 @@ class _IntrayPageContentTwoState extends State<IntrayPageContentTwo> with Automa
   @override
   bool get wantKeepAlive => true;
   final Completer<WebViewController> _controller = Completer<WebViewController>();
+  bool loading = false;
 
 
   @override 
@@ -59,17 +60,33 @@ class _IntrayPageContentTwoState extends State<IntrayPageContentTwo> with Automa
                 margin: EdgeInsets.only(top: 80),
                 color: Colors.white,
                 child: Scaffold(
-                  body: WebView(
-                    gestureRecognizers: [Factory(() => PlatformViewVerticalGestureRecognizer())].toSet(),
-                    javascriptMode: JavascriptMode.unrestricted,
-                    onWebViewCreated: (WebViewController webViewController){
-                      webViewController.loadUrl("https://niggelgame.pythonanywhere.com/api/data2",
-                        headers: {
-                        "Authorization": state.apiToken
-                      }).whenComplete(() {
-                        _controller.complete(webViewController);
-                      });
-                    },
+                  body: Stack(
+                    children: <Widget>[
+                      WebView(
+                        gestureRecognizers: [Factory(() => PlatformViewVerticalGestureRecognizer())].toSet(),
+                        javascriptMode: JavascriptMode.unrestricted,
+                        onWebViewCreated: (WebViewController webViewController){
+                          webViewController.loadUrl("https://niggelgame.pythonanywhere.com/api/data2",
+                            headers: {
+                            "Authorization": state.apiToken
+                          }).whenComplete(() {
+                            setState(() {
+                              loading = false;
+                            });
+                            _controller.complete(webViewController);
+                          });
+                        },
+                      ),
+                      !loading ? Container(height: 0, width: 0,) : Container(
+                        color: Colors.white,
+                        child: Expanded(
+                          child: Center(
+                            child: CupertinoActivityIndicator(animating: true,),
+                          ),
+                        ),
+                      )
+                      
+                    ],
                   ),
                   floatingActionButton: FutureBuilder(
                     future: _controller.future,
@@ -79,9 +96,16 @@ class _IntrayPageContentTwoState extends State<IntrayPageContentTwo> with Automa
                           child: Icon(Icons.refresh, color: Colors.black,),
                           backgroundColor: redColor,
                           onPressed: () {
+                            setState(() {
+                              loading = true;
+                            });
                             controller.data.loadUrl("https://niggelgame.pythonanywhere.com/api/data2",
                             headers: {
                             "Authorization": state.apiToken
+                            }).whenComplete(() {
+                              setState(() {
+                                loading = false;
+                              });
                             });
                           },
                         );
