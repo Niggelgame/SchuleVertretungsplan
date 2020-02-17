@@ -38,11 +38,12 @@ class _LoginFormState extends State<LoginForm> {
       child: BlocBuilder<LoginBloc, LoginState>(
         builder: (context, state){
           return Container(
-      margin: EdgeInsets.only(top: 100, left: 20, right: 20, bottom: 100),
+      margin: EdgeInsets.only(left: 20, right: 20),
       child: SingleChildScrollView(
               child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
+            SizedBox(height: 100,),
             Text("Welcome", style: bigLightBlueTitle,),
             Container(height: 100,),
             Container(
