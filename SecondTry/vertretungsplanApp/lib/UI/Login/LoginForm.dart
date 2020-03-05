@@ -55,6 +55,7 @@ class _LoginFormState extends State<LoginForm> {
                       data: Theme.of(context).copyWith(splashColor: Colors.transparent),
                       child: TextField(
                         controller: _usernameController,
+                        autocorrect: false,
                         autofocus: false,
                         cursorColor: darkGreyColor,
                         style: TextStyle(fontSize: 22.0, color: darkGreyColor),
