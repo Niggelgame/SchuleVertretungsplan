@@ -292,7 +292,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "5b6200131a9f89820d15f0bd9ead50130f0632d3"
+      resolved-ref: "17470f2ec585ea95c3c0067a5c63158eae2f6dfd"
       url: "https://github.com/niggelgame/webview_flutter_clone"
     source: git
     version: "0.3.19+1"

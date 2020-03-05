@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:vertretungsplanApp/UI/Login/LoginForm.dart';
 import 'package:vertretungsplanApp/blocs/authentication_bloc.dart';
 import 'package:vertretungsplanApp/blocs/login_bloc.dart';
@@ -15,6 +16,11 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark.copyWith(
+      statusBarColor: Color(0xFF212128), // Color for Android
+      statusBarIconBrightness: Brightness.light,
+      statusBarBrightness: Brightness.dark // Dark == white status bar -- for IOS.
+    ));
     return Scaffold(
      backgroundColor: Color(0xFF212128),
       body: BlocProvider(

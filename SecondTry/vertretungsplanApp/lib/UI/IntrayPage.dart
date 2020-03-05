@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vertretungsplanApp/UI/IntrayContents/IntrayPageContentOne.dart';
 import 'package:vertretungsplanApp/UI/IntrayContents/IntrayPageContentTwo.dart';
@@ -16,6 +17,11 @@ class _IntrayPageState extends State<IntrayPage> {
 
   @override 
   Widget build(BuildContext context){
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark.copyWith(
+      statusBarColor: Colors.grey, // Color for Android
+      statusBarIconBrightness: Brightness.light,
+      statusBarBrightness: Brightness.dark // Dark == white status bar -- for IOS.
+    ));
     return Container(
       color: Colors.white,
       child: SafeArea(

@@ -56,7 +56,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark.copyWith(
-      statusBarColor: Colors.white, // Color for Android
+      statusBarColor: Colors.grey, // Color for Android
       statusBarBrightness: Brightness.dark // Dark == white status bar -- for IOS.
     ));
     OneSignal.shared.init(
